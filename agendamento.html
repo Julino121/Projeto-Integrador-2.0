@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Médico</title>
+    <link rel="stylesheet" href="assets/css/style_form.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Formulário Médico</h2>
+
+        <form id="complete-form">
+            <div class="form-section">
+                <h3>Informações Pessoais</h3>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+
+            <div class="form-section">
+                <h3>Endereço</h3>
+                <label for="country">País:</label>
+                <input type="text" id="country" name="country" required>
+
+                <label for="state">Estado:</label>
+                <input type="text" id="state" name="state" required>
+
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required>
+
+                <label for="street">Rua:</label>
+                <input type="text" id="street" name="street" required>
+
+                <label for="neighborhood">Bairro:</label>
+                <input type="text" id="neighborhood" name="neighborhood" required>
+
+                <label for="complement">Complemento:</label>
+                <input type="text" id="complement" name="complement">
+            </div>
+
+            <div class="form-section">
+                <h3>Agende sua Consulta</h3>
+                <label for="specialty">Especialidade Médica:</label>
+                <select id="specialty" name="specialty">
+                    <option value="cardiologia">Cardiologia</option>
+                    <option value="dermatologia">Dermatologia</option>
+                    <option value="ortopedia">Ortopedia</option>
+                </select>
+
+                <label for="clinic">Unidade:</label>
+                <select id="clinic" name="clinic">
+                    <option value="clinic1">Clínica 1</option>
+                    <option value="clinic2">Clínica 2</option>
+                    <option value="clinic3">Clínica 3</option>
+                </select>
+
+                <label for="insurance">Convênio:</label>
+                <select id="insurance" name="insurance">
+                    <option value="insurance1">Convênio 1</option>
+                    <option value="insurance2">Convênio 2</option>
+                    <option value="insurance3">Convênio 3</option>
+                </select>
+
+                <label for="date">Data:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Horário:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script src="assets/script/script.js"></script>
+</body>
+</html>

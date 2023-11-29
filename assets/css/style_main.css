@@ -1,0 +1,366 @@
+:root {
+    --primary: #0070df;
+  }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-image: url('teste_formulario/assets/images/wllppr.jpg');
+    background-size: cover;
+}
+
+h1 {
+    margin: 0px;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo com transparência */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #333;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.user-option, .clinic-option {
+    display: inline-block;
+    padding: 15px 30px; /* Aumenta o tamanho dos botões */
+    margin: 0 10px;
+    background-color: rgba(76, 175, 80, 0.7); /* Fundo com transparência */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.user-option:hover, .clinic-option:hover {
+    background-color: rgba(69, 160, 73, 0.7); /* Fundo com transparência no hover */
+}
+
+.content {
+    background-color: var(--primary);
+    padding-bottom: 120px;
+    position: relative
+}
+
+.content::after {
+    content: "";
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    background-image: url("https://pranotas.com.br/static/media/ondas.b313e921.svg");
+    background-repeat: repeat-x;
+    background-size: 100%;
+    background-position: bottom;
+    bottom: 0;
+}
+
+.content nav  {
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+.content nav .image-content {
+    flex: 1;
+
+}
+
+.content nav .image-content img {
+    width: 165px;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-items .nav-item {
+    margin-left: 30px;
+}
+
+.nav-items .nav-item a {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.nav-items .nav-item a:hover {
+    background: linear-gradient(90deg,#05407b,#04284b);
+    transition: 2s;
+    color: #FFF;
+    border-color: 04284b;
+}
+
+.link-button-outlined {
+    border: 3px solid #FFF;
+    border-radius: 50px;
+    padding: 12px;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.content .infos {
+    padding: 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content .info-texts {
+    flex: 0.6
+}
+
+.content .image-home {
+    flex: 0.4;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.content .image-home img {
+    width: 450px;
+}
+
+.content .infos h1 {
+    color: #FFF;
+}
+
+.content .infos .info-texts {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .infos .info-texts h2 {
+    margin-top: 0;
+    /* color: #FFF; */
+    background-image: linear-gradient(to right, #d3e8fc, #FFF);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+
+
+.content .infos .info-texts .button-content {
+    margin-top: 30px;
+}
+
+.content .infos .info-texts .button-content a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 2s;
+    background-color: transparent;
+}
+
+.content .infos .info-texts .button-content a:hover {
+    background: linear-gradient(90deg,#05407b,#04284b);
+    transition: 2s;
+    color: #FFF;
+    border-color: 04284b;
+}
+
+.benefits {
+    padding: 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+.benefits .title-content {
+    /**/
+}
+.benefits .title-content h1 {
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+
+.benefits .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 47px;
+}
+
+.benefits .cards .card {
+    /* 
+   
+  */
+    width: 348px;
+    text-align: center; 
+    padding: 30px;
+    /* display: flex; */
+    /* flex-direction: column;
+    flex: 1; */
+    box-shadow: 2px 1px 15px -3px  rgba(0,0,0,0.1);
+    background-color: #FFF;
+    height: 242px;
+    border-radius: 30px;
+    /* min-height: 200px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+  
+    max-width: 300px;
+    width: 300px !important; */
+}
+
+.benefits .cards .card  h2 {
+    color: #05407b;
+}
+
+.benefits .cards .card  p {
+    color: #062c52;
+}
+
+.benefits .cards .card img {
+    width: 64px;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: #fff;
+    background-color: var(--primary);
+    text-decoration: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.footer .footer-item {
+    margin-top: 20px;
+}
+
+.business {
+    padding: 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+.business h1 {
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+.business .business-content {
+    display: flex;
+}
+
+.business .business-content .image-content  {
+    flex: 0.7;
+}
+
+.business .business-content .image-content img {
+    width: 300px;
+}
+
+.business .business-content .content-texts p {
+    font-size: 19px;
+}
+
+.business .business-content .content-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.business .business-content .content-texts button {
+    background-color: var(--primary);
+    color: #FFF;
+    padding: 18px;
+    border-radius: 42px;
+    border: 0;
+    font-size: 18px;
+}
+
+.business .business-content .content-texts button:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg,#05407b,#04284b);
+    transition: 2s;
+    color: #FFF;
+    border-color: 04284b;
+}
+
+.customer {
+    background-color: #f3f8ff;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    padding-left: 130px;
+    padding-right: 130px;
+    border-radius: 50px;
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-bottom: 40px;
+}
+
+.customer h1 {
+    color: var(--primary);
+    margin-bottom: 40px;
+}
+
+.customer .customer-content {
+    display: flex;
+}
+
+.customer .customer-content .image-content  {
+    flex: 0.3;
+}
+
+.customer .customer-content .image-content img {
+    width: 340px;
+}
+
+.customer .customer-content .content-texts p {
+    font-size: 19px;
+}
+
+.customer .customer-content .content-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0.7;
+}
+
+.customer .customer-content .content-texts button {
+    background-color: var(--primary);
+    color: #FFF;
+    padding: 18px;
+    border-radius: 42px;
+    border: 0;
+    font-size: 18px;
+}
+
+.customer .customer-content .content-texts button:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg,#05407b,#04284b);
+    transition: 2s;
+    color: #FFF;
+    border-color: 04284b;
+}
+
