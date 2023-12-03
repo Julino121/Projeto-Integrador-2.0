@@ -46,6 +46,7 @@ def receber_dados():
     
     db.session.add(novo_formulario)
     db.session.commit()
+    print(novo_formulario)
 
     return jsonify({'message': 'Dados recebidos com sucesso!'})
 
