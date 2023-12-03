@@ -27,9 +27,6 @@ def enviar_dados_para_servidor_java(dados_validar):
         response = "Recebido do servidor Java: " + response
     else:
         response = "Nenhuma resposta válida recebida do servidor Java."
-
-    print(response)
-
     return response
 
 @app.route('/')
