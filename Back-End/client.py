@@ -1,5 +1,5 @@
 #import json
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template,abort
 import socket
 import mysql.connector
 app = Flask(__name__)
@@ -71,10 +71,11 @@ def formulario():
         insert_consulta(name, clinic, specialty, insurance, date, time)
         insert_pacient(name)
         update_clinica(clinic)
-        return 0
+        return "Formulario validado com sucesso !!!"
     else:
         print("INVALIDO, preencha o formulario novamente")
-        return 0
+        abort(400, "Formulário inválido. Preencha novamente.")  # Retorna uma resposta de erro 400
+
     
 def extract_data(dados_formulario):
     name = dados_formulario["name"]
@@ -104,9 +105,10 @@ def insert_usuario(name, cpf, phone, email, cep, street,  country, state, neighb
     
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="Eli210504.",
-        database="pi4DataBase"
+        user="elizeu",
+        password="elizeu210504",
+        database="piaDataBase"
+        
     )
 
     mycursor = mydb.cursor()
@@ -122,14 +124,17 @@ def insert_usuario(name, cpf, phone, email, cep, street,  country, state, neighb
     # Commit the changes to the database
     mydb.commit()
 
+    return 0
+
 
 def insert_consulta(name, clinic, specialty, insurance, date, time):
     
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="Eli210504.",
-        database="pi4DataBase"
+        user="elizeu",
+        password="elizeu210504",
+        database="piDataBase"
+        
     )
     mycursor = mydb.cursor()
 
@@ -141,9 +146,8 @@ def insert_consulta(name, clinic, specialty, insurance, date, time):
     mycursor.execute(select_query, (clinic))
     id_clinica = mycursor.fetchone()
 
-
     if id_usuario and id_clinica:
-        sql = "INSERT INTO consulta (id_usuario, id_clinica, specialty, insurance, date, time VALUES (%s,%s,%s,%s,%s,%s)"
+        sql = "INSERT INTO consulta (id_usuario, id_clinica, specialty, insurance, date, time) VALUES (%s,%s,%s,%s,%s,%s)"
 
         val= (id_usuario, id_clinica, specialty, clinic, insurance, date, time)
 
@@ -152,6 +156,7 @@ def insert_consulta(name, clinic, specialty, insurance, date, time):
     else:
         print("Erro ao achar os id necessários")
 
+    return 0
 
 
 
@@ -159,9 +164,10 @@ def insert_pacient(name):
     
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="Eli210504.",
-        database="pi4DataBase"
+        user="elizeu",
+        password="elizeu210504",
+        database="piaDataBase"
+      
     )
 
     mycursor = mydb.cursor()
@@ -182,14 +188,17 @@ def insert_pacient(name):
     else:
         print("Erro ao achar os id necessários")
 
+    return 0
+
     
 def update_clinica(clinic):
     
     mydb = mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="Eli210504.",
-        database="pi4DataBase"
+        user="elizeu",
+        password="elizeu210504",
+        database="piaDataBase"
+
     )
 
     mycursor = mydb.cursor()
@@ -207,11 +216,13 @@ def update_clinica(clinic):
         mydb.commit()
     else:
         print("Erro ao achar os id necessários")
+    
+    return 0
 
 
-
+'''
 if __name__ == '__main__':
-    app.run(host='localhost', port=80)
+    app.run(host='localhost', port=80)'''
 
 if __name__ == '__main__':
     app.run(host='localhost', port=80)
