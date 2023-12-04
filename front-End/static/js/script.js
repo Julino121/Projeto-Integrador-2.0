@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.forEach(function (value, key) {
             jsonData[key] = value;
         });
+        console.log({ jsonData })
 
         fetch('http://localhost:80/style_form', {
             method: 'POST',
@@ -23,9 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            alert('Consulta agendada com sucesso!')
         })
         .catch(error => {
-            console.error('Erro ao enviar dados:', error);
+            alert('Erro ao realizar agenda!')
         });
     });
 });

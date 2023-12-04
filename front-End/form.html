@@ -8,11 +8,11 @@
 </head>
 <body>
 
-    <div class="container">
+     <!--<div class="container">
         <h2>Formulário Médico</h2>
 
         <form id="complete-form" method="POST" action="http://localhost:80">
-            <!-- Informações Pessoais -->
+             Informações Pessoais 
             <div class="form-section" id="personal-info-form">
                 <h3>Informações Pessoais</h3>
                 <label for="name">Nome:</label>
@@ -28,7 +28,6 @@
                 <input type="text" id="email" name="email" required>
             </div>
 
-            <!-- Endereço -->
             <div class="form-section" id="address-form">
                 <h3>Endereço</h3>
                 <label for="country">País:</label>
@@ -50,7 +49,6 @@
                 <input type="text" id="complement" name="complement">
             </div>
 
-            <!-- Agende sua Consulta -->
             <div class="form-section" id="appointment-form">
                 <h3>Agende sua Consulta</h3>
                 <label for="specialty">Especialidade Médica:</label>
@@ -85,11 +83,141 @@
         </form>
     </div>
 
-    <!-- ... -->
 
-<script src="/front-End/static/js/script.js"></script>
+    <script src="/front-End/static/js/script.js"></script>
+    -->
+    <div class="logo">
+        <img src="/front-End/static/images/logo.png" alt="">
+    </div>
 
-<!-- ... -->
+    <div class="container">
+
+        <header>Consulta</header>
+
+        <form action="" id="complete-form" method="POST" action="http://localhost:80">
+            <div class="form-fist">
+                <div class="details">
+                    <span class="title">Informações para consulta</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Nome</label>
+                            <input type="text" placeholder="Digite seu nome" id="name" name="name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Cpf</label>
+                            <input type="text" placeholder="Digite seu cpf" id="cpf" name="cpf" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Telefone</label>
+                            <input type="text" placeholder="Digite seu telefone" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Digite seu email" id="email" name="email" required>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <span class="title">Endereço</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Pais</label>
+                        <input type="text" placeholder="Digite seu pais" id="country" name="country" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Estado</label>
+                        <input type="text" placeholder="Digite seu estado" id="state" name="state" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>CEP</label>
+                        <input type="text" placeholder="Digite seu cep" id="cep" name="cep" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Rua</label>
+                        <input type="text" placeholder="Digite sua rua" id="street" name="street" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Bairro</label>
+                        <input type="text" placeholder="Digite seu bairro" id="neighborhood" name="neighborhood" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Complemento</label>
+                        <input type="text" placeholder="Complemento endereço" id="complement" name="complement" required>
+                    </div>
+
+             
+                </div>
+            </div>
+
+            <div class="details">
+                <span class="title">Agende sua Consulta</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Especialidade Médica</label>
+                        <select id="specialty" name="specialty">
+                            <option value="cardiologia">Cardiologia</option>
+                            <option value="dermatologia">Dermatologia</option>
+                            <option value="ortopedia">Ortopedia</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Unidade</label>
+                        <select id="clinic" name="clinic">
+                            <option value="clinic1">Clínica 1</option>
+                            <option value="clinic2">Clínica 2</option>
+                            <option value="clinic3">Clínica 3</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Convênio</label>
+
+                        <select id="insurance" name="insurance">
+                            <option value="insurance1">Convênio 1</option>
+                            <option value="insurance2">Convênio 2</option>
+                            <option value="insurance3">Convênio 3</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="input-field input-field-date">
+                        <label>Data</label>
+                        <input type="date" placeholder="Selecione a data" id="date" name="date" required>
+                    </div>
+
+                    <div class="input-field input-field-time">
+                        <label>Horário</label>
+                        <input type="time" placeholder="Selecione o horário" id="time" name="time" required>
+                    </div>
+                </div>
+             
+            </div>
+
+            <div class="input-div">
+                <input type="submit" value="Enviar">
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="/front-End/static/js/script.js"></script>
 
 </body>
 </html>
