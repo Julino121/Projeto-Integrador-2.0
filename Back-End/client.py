@@ -1,6 +1,7 @@
-import json
+#import json
 from flask import Flask, request, render_template
 import socket
+import mysql.connector
 app = Flask(__name__)
 
 def enviar_dados_para_servidor_java(dados_validar):
@@ -66,9 +67,10 @@ def formulario():
     if resposta.strip().lower() == "validado":
         print("VALIDADOS")
         name, cpf, phone, email, country, state, cep, street, neighborhood, complement, specialty, clinic, insurance, date, time = extract_data(dados_formulario)
-        insert_usuario(name, cpf, email, phone, cep, street)
+        insert_usuario(name, cpf, email, phone, cep, street, country, state, neighborhood, complement, )
         insert_consulta(name, clinic, specialty, insurance, date, time)
         insert_pacient(name)
+        update_clinica(clinic)
         return 0
     else:
         print("INVALIDO, preencha o formulario novamente")
@@ -98,7 +100,7 @@ def extract_data(dados_formulario):
 
 
 
-def insert_usuario(name, cpf, phone, email, cep, street):
+def insert_usuario(name, cpf, phone, email, cep, street,  country, state, neighborhood, complement):
     
     mydb = mysql.connector.connect(
         host="localhost",
@@ -110,10 +112,10 @@ def insert_usuario(name, cpf, phone, email, cep, street):
     mycursor = mydb.cursor()
 
     # SQL query with placeholders for parameters
-    sql = "INSERT INTO usuarios (name, cpf, phone, email, cep, rua) VALUES (%s,%s,%s,%s,%s)"
+    sql = "INSERT INTO usuarios (name, cpf, phone, email, cep, rua, country, state, neighborhood, complement,) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
     # Tuple with values obtained from the form or any other source
-    val = (name, cpf, phone, email, cep, street)
+    val = (name, cpf, phone, email, cep, street, country, state, neighborhood, complement)
     # Execute the query with the provided values
     mycursor.execute(sql, val)
 
@@ -140,13 +142,15 @@ def insert_consulta(name, clinic, specialty, insurance, date, time):
     id_clinica = mycursor.fetchone()
 
 
+    if id_usuario and id_clinica:
+        sql = "INSERT INTO consulta (id_usuario, id_clinica, specialty, insurance, date, time VALUES (%s,%s,%s,%s,%s,%s)"
 
-    sql = "INSERT INTO consulta (id_usuario, id_clinica, specialty, insurance, date, time VALUES (%s,%s,%s,%s,%s,%s)"
+        val= (id_usuario, id_clinica, specialty, clinic, insurance, date, time)
 
-    val= (id_usuario, id_clinica, specialty, clinic, insurance, date, time)
-
-    mycursor.execute(sql, val)
-    mydb.commit()
+        mycursor.execute(sql, val)
+        mydb.commit()
+    else:
+        print("Erro ao achar os id necessários")
 
 
 
@@ -170,16 +174,39 @@ def insert_pacient(name):
     mycursor.execute(select_query, (id_usuario))
     id_consulta = mycursor.fetchone()
 
-    sql = "INSERT INTO patiet (id_clinica, id_usuario) VALUES (%s,%s)"
+    if id_consulta and id_usuario:
+        sql = "INSERT INTO patiet (id_clinica, id_usuario) VALUES (%s,%s)"
+        val = (id_usuario , id_consulta)
+        mycursor.execute(sql, val)
+        mydb.commit()
+    else:
+        print("Erro ao achar os id necessários")
 
-    # Tuple with values obtained from the form or any other source
-    val = (id_usuario , id_consulta)
-    # Execute the query with the provided values
-    mycursor.execute(sql, val)
+    
+def update_clinica(clinic):
+    
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Eli210504.",
+        database="pi4DataBase"
+    )
 
-    # Commit the changes to the database
-    mydb.commit()
+    mycursor = mydb.cursor()
+    
+    select_query = "SELECT id_consulta FROM consulta WHERE clinic = %s"
+    mycursor.execute(select_query, (clinic))
+    id_consulta = mycursor.fetchone()
 
+    if id_consulta:
+        sql = "INSERT INTO patiet (id_clinica) VALUES (%s)"
+        val = (id_consulta)
+        mycursor.execute(sql, val)
+
+        # Commit the changes to the database
+        mydb.commit()
+    else:
+        print("Erro ao achar os id necessários")
 
 
 
