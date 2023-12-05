@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
-        var submitButton = form.querySelector('input[type="submit"]');
-        submitButton.disabled = true;
+
+        // var submitButton = form.querySelector('input[type="submit"]');
+        // submitButton.disabled = true;
 
         var formData = new FormData(form);
         var jsonData = {};
@@ -12,19 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.forEach(function (value, key) {
             jsonData[key] = value;
         });
-        console.log({ jsonData })
 
-        fetch('http://localhost:80/style_form', {
+        const dateObj = new Date(jsonData.date);
+        const timeArray = jsonData.time.split(":");
+        const hours = timeArray[0];
+        const minutes = timeArray[1];
+
+        dateObj.setHours(hours);
+        dateObj.setMinutes(minutes);
+
+        jsonData.date = dateObj;
+
+        console.log({ dateObj })
+
+        fetch('http://localhost:3100/appointments', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             },
-            body: new URLSearchParams(jsonData).toString()
+            body: JSON.stringify(jsonData)
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            alert('Consulta agendada com sucesso!')
+            window.location.href = "/front-End/obrigado.html?name=teste"
         })
         .catch(error => {
             alert('Erro ao realizar agenda!')

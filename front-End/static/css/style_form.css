@@ -191,3 +191,10 @@ form .fields .input-field{
     height: auto;
 }
 
+.content-success {
+    text-align: center;
+}
+
+.content-success img {
+    width: 143px;
+}
