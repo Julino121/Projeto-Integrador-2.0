@@ -1,0 +1,15 @@
+{
+  "name": "danilo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start:dev": "node src/app.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "~4.16.1",
+    "mongoose": "^8.0.2",
+    "net": "^1.0.2"
+  }
+}
