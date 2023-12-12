@@ -29,7 +29,7 @@ public class Validacao extends Thread {
             boolean isValid = true;
             System.out.println("Starting validation");
 
-            for (int i = 0; i < parts.length; i += 2) {
+            for (int i = 0; i < parts.length - 1; i += 2){
                 String field = parts[i].trim();
                 String value = parts[i + 1].trim();
 
@@ -56,7 +56,7 @@ public class Validacao extends Thread {
                         }
                         break;
                     default:
-                        // Handle unknown field or other custom logic
+                        
                 }
             }
 
